@@ -50,16 +50,18 @@ function createTable(element, qtdLine, qtdColumn, data){
   var table = document.getElementById(element);
   var len = data.length;
   var el = '<table border="1">';
-  var qtdEl = 0;
-  for(var i = 0; i < qtdLine; i++){
+  //var qtdEl = 0; Desnecessário, pode usar o próprio J
+  var linha = [];
+  for(var i = 0; i <= qtdLine; i++){ //Alterei para <= considerando q a linha 1 é o nome das colunas
     el += '<tr>';
+    linha = data[i]; //salva cada linha da tabela
       for(var j = 0; j < qtdColumn; j++){
         el += '<td>';
         if(qtdEl < len){
-            el += data[qtdEl];
+            el += linha[j];
         }
         el += '</td>';
-        qtdEl++;
+        //qtdEl++;
       }
       el += '</tr>';
   }
